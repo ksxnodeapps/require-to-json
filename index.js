@@ -31,7 +31,7 @@ getStdIn()
     value => {
       const string = String(value)
       if (!string) return failure(readFileSync(resolve(__dirname, 'help.txt'), 'utf8'), 0)
-      const tmp = new TempFile({directory: __dirname})
+      const tmp = new TempFile({directory: cwd()})
       tmp.write(string)
       const result = main(tmp)
       tmp.unlink()
