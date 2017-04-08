@@ -7,7 +7,7 @@ const process = require('process')
 const getStdIn = require('get-stdin')
 const TempFile = require('./lib/temp-file.js')
 const {stringify} = JSON
-const {exit, argv} = process
+const {exit, argv, cwd} = process
 const {info, error} = global.console
 
 const success = message => {
@@ -24,7 +24,7 @@ const main = filename =>
   stringify(require(String(filename)), undefined, 2)
 
 const filename = argv[2]
-if (filename) success(main(filename))
+if (filename) success(main(join(cwd(), filename)))
 
 getStdIn()
   .then(
