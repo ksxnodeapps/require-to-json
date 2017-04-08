@@ -27,8 +27,8 @@
   },
   "keywords": [
     "json",
-    "property",
-    "properties",
+    "eval",
+    "require",
     "json-cli"
   ],
   "bugs": {
