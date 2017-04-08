@@ -6,7 +6,6 @@ const {readFileSync} = require('fs')
 const process = require('process')
 const getStdIn = require('get-stdin')
 const TempFile = require('./lib/temp-file.js')
-const {getOwnPropertyDescriptor} = Object
 const {stringify} = JSON
 const {exit, argv} = process
 const {info, error} = global.console
