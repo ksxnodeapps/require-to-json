@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 'use strict'
 
-const {join} = require('path')
+const {resolve} = require('path')
 const {readFileSync} = require('fs')
 const process = require('process')
 const getStdIn = require('get-stdin')
@@ -24,13 +24,13 @@ const main = filename =>
   stringify(require(String(filename)), undefined, 2)
 
 const filename = argv[2]
-if (filename) success(main(join(cwd(), filename)))
+if (filename) success(main(resolve(cwd(), filename)))
 
 getStdIn()
   .then(
     value => {
       const string = String(value)
-      if (!string) return failure(readFileSync(join(__dirname, 'help.txt'), 'utf8'), 0)
+      if (!string) return failure(readFileSync(resolve(__dirname, 'help.txt'), 'utf8'), 0)
       const tmp = new TempFile({directory: __dirname})
       tmp.write(string)
       const result = main(tmp)
