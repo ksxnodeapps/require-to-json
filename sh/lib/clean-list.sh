@@ -1,1 +1,1 @@
-echo 'tmp temp *.tmp *.temp *.log npm-debug.log*'
+echo 'tmp* temp* *.tmp *.temp *.log npm-debug.log*'
