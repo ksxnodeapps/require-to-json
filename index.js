@@ -5,10 +5,10 @@ const {join} = require('path')
 const {readFileSync} = require('fs')
 const process = require('process')
 const getStdIn = require('get-stdin')
+const TempFile = require('./lib/temp-file.js')
 const {getOwnPropertyDescriptor} = Object
-const {parse, stringify} = JSON
+const {stringify} = JSON
 const {exit, argv} = process
-const usefulargv = argv.slice(2)
 const {info, error} = global.console
 
 const success = message => {
@@ -28,17 +28,22 @@ const getprop = (object, property) => {
   return descriptor.value
 }
 
-const main = (json, field) =>
-  success(stringify(field.reduce(getprop, parse(json)), undefined, 2))
+const main = filename =>
+  stringify(require(String(filename)), undefined, 2)
+
+const filename = argv[3]
+if (filename) return success(main(filename))
 
 getStdIn()
   .then(
     value => {
       const string = String(value)
-      if (string) return main(string, usefulargv)
-      const [file, ...field] = usefulargv
-      if (!file) failure(readFileSync(join(__dirname, 'help.txt'), 'utf8'), 0)
-      return main(readFileSync(file, 'utf8'), field)
+      if (!string) return failure(readFileSync(join(__dirname, 'help.txt')), 0)
+      const tmp = new TempFile({directory: __dirname})
+      tmp.write(string)
+      const result = main(tmp)
+      tmp.unlink()
+      return success(result)
     }
   )
   .catch(failure)
