@@ -30,7 +30,7 @@ getStdIn()
   .then(
     value => {
       const string = String(value)
-      if (!string) return failure(readFileSync(join(__dirname, 'help.txt')), 0)
+      if (!string) return failure(readFileSync(join(__dirname, 'help.txt'), 'utf8'), 0)
       const tmp = new TempFile({directory: __dirname})
       tmp.write(string)
       const result = main(tmp)
