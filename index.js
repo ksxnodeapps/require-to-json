@@ -21,13 +21,6 @@ const failure = (message, code = 1) => {
   exit(code)
 }
 
-const getprop = (object, property) => {
-  if (object === undefined || object === null) return undefined
-  const descriptor = getOwnPropertyDescriptor(object, property)
-  if (!descriptor) return undefined
-  return descriptor.value
-}
-
 const main = filename =>
   stringify(require(String(filename)), undefined, 2)
 
