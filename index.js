@@ -23,7 +23,7 @@ const failure = (message, code = 1) => {
 const main = filename =>
   stringify(require(String(filename)), undefined, 2)
 
-const filename = argv[3]
+const filename = argv[2]
 if (filename) success(main(filename))
 
 getStdIn()
