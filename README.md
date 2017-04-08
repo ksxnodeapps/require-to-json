@@ -3,7 +3,7 @@ Require a JavaScript file and print JSON result to stdout
 
 ## Installation
 
-```
+```bash
 npm install --global require-to-json
 ```
 
