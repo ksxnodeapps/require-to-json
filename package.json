@@ -1,7 +1,7 @@
 {
-  "name": "json-property",
-  "description": "Print JSON property to stdout",
-  "version": "0.0.5",
+  "name": "require-to-json",
+  "description": "Require a JavaScript file and print JSON result to stdout",
+  "version": "0.0.0",
   "bin": "index.js",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "contributors": [
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ksxnodeapps/json-property.git"
+    "url": "https://github.com/ksxnodeapps/require-to-json.git"
   },
   "dependencies": {
     "get-stdin": "^5.0.1"
@@ -31,7 +31,7 @@
     "json-cli"
   ],
   "bugs": {
-		"url": "https://github.com/ksxnodeapps/json-property/issues"
+		"url": "https://github.com/ksxnodeapps/require-to-json/issues"
 	},
-	"homepage": "https://github.com/ksxnodeapps/json-property#readme"
+	"homepage": "https://github.com/ksxnodeapps/require-to-json#readme"
 }

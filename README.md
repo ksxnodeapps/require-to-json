@@ -1,22 +1,26 @@
-# json-property
-Print JSON property to stdout
+# require-to-json
+Require a JavaScript file and print JSON result to stdout
 
 ## Installation
 
 ```
-npm install --global json-property
+npm install --global require-to-json
 ```
 
 ## Command-line usage
 
 ```bash
-json-property file.json property_name_1 property_name_2 property_name_3
+require-to-json file.js
 ```
 
 ```bash
-json-property property_name_1 property_name_2 property_name_3 < file.json
+require-to-json < file.js
 ```
 
 ```bash
-cat file.json | json-property property_name_1 property_name_2 property_name_3
+cat file.js | require-to-json
+```
+
+```bash
+echo 'module.exports = 123 + 456' | require-to-json
 ```
