@@ -32,7 +32,7 @@ const main = filename =>
   stringify(require(String(filename)), undefined, 2)
 
 const filename = argv[3]
-if (filename) return success(main(filename))
+if (filename) success(main(filename))
 
 getStdIn()
   .then(
